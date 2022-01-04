@@ -1,22 +1,19 @@
-from os import link
 from bs4 import BeautifulSoup
 import requests
 import re
-import webbrowser
 import pandas as pd
-import numpy as np
 import random
 from time import sleep
 
 
 def writeToTxt(data, mode):
-    tempfile = open("temphtml.txt", mode)
+    tempfile = open("res_links.txt", mode)
     tempfile.write(str(data))
     tempfile.close()
 
 
-def clearTxt():
-    tempfile = open("temphtml.txt", 'w')
+def clearFile():
+    tempfile = open("res_links.txt", 'w')
     tempfile.write('')
     tempfile.close()
 
@@ -41,13 +38,12 @@ def getUserInputs():
 
 
 def getListofRes(url):
-
     soup = getbs4Response(url)
     regex = re.compile('.*leftRailSearchResultsContainer.*')
     bodyRes = soup.find('main', class_=regex)
     regex = re.compile('.*undefined.*')
     reslist = bodyRes.find('ul', class_=regex)
-    clearTxt()
+    clearFile()
     regex = re.compile('.*border-color--default.*')
     for index in reslist.find_all('li', class_=regex):
         for a in index.find_all('a', href=True):
@@ -84,14 +80,14 @@ def getEachResName(links, resloc):
 def main():
     url, resloc = getUserInputs()
     getListofRes(url)
-    df = pd.read_csv("temphtml.txt", names=["URL"])
+    df = pd.read_csv("res_links.txt", names=["URL"])
     df = df.groupby(df.index // 3).first()
-    df.to_csv("temphtml.txt", index=False, header=False)
-    for index, row in df.iterrows():
-        getEachResName(row['URL'], resloc)
-        timeS = round(random.uniform(120, 240), 2)
-        print("Waiting ", timeS, " seconds....\n")
-        sleep(timeS)
+    writeToTxt(df['URL'].values,'w')
+    # for index, row in df.iterrows():
+    #     getEachResName(row['URL'], resloc)
+    #     timeS = round(random.uniform(2, 30), 2)
+    #     print("Waiting ", timeS, " seconds....\n")
+    #     sleep(timeS)
 
 
 if __name__ == "__main__":

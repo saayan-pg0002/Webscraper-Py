@@ -1,0 +1,11 @@
+['https://www.yelp.ca//biz/chipotle-mexican-grill-bellingham?osq=chipotle'
+ 'https://www.yelp.ca//biz/chipotle-mexican-grill-burnaby?osq=chipotle'
+ 'https://www.yelp.ca//biz/chronic-tacos-burnaby-2?osq=chipotle'
+ 'https://www.yelp.ca//biz/mucho-burrito-burnaby?osq=chipotle'
+ 'https://www.yelp.ca//biz/new-york-fries-burnaby-4?osq=chipotle'
+ 'https://www.yelp.ca//biz/a-and-w-burnaby-3?osq=chipotle'
+ 'https://www.yelp.ca//biz/quesada-burritos-and-tacos-burnaby-2?osq=chipotle'
+ 'https://www.yelp.ca//biz/subway-burnaby-17?osq=chipotle'
+ 'https://www.yelp.ca//biz/freshii-burnaby?osq=chipotle'
+ 'https://www.yelp.ca//biz/kfc-burnaby-9?osq=chipotle'
+ 'https://www.yelp.ca//biz/chipotle-mexican-grill-burnaby']
